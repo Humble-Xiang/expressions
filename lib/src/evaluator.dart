@@ -179,6 +179,8 @@ class ExpressionEvaluator {
         return left / right();
       case '%':
         return left % right();
+      case '=':
+        return context[(expression.left as Variable).identifier.name] = right();
     }
     throw ArgumentError(
         'Unknown operator ${expression.operator} in expression');
