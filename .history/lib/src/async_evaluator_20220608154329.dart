@@ -38,8 +38,7 @@ class AsyncExpressionEvaluator extends ExpressionEvaluator {
 
     return CombineLatestStream.combine2(left, right, (a, b) {
       return baseEvaluator.evalBinaryExpression(
-          BinaryExpression(expression.operator,
-              a != null ? _asLiteral(a) : expression.left, _asLiteral(b)),
+          BinaryExpression(expression.operator, _asLiteral(a), _asLiteral(b)),
           context);
     });
   }
